@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS public.students
+(
+    stud_id integer NOT NULL,
+    stud_surname character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    stud_name character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    stud_gender character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    stud_age integer NOT NULL,
+    stud_city character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    stud_tel character varying(12) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT students_pkey PRIMARY KEY (stud_id)
+)

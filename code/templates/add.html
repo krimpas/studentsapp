@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Add Student</h1>
+    <form method="post" action="{{ url_for('add_student') }}">
+        {{ csrf_token }}
+        <div class="mb-3">
+            <label for="stud_surname" class="form-label">Surname:</label>
+            <input type="text" class="form-control" id="stud_surname" name="stud_surname" required>
+        </div>
+        <div class="mb-3">
+            <label for="stud_name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="stud_name" name="stud_name" required>
+        </div>
+        <div class="mb-3">
+            <label for="stud_gender" class="form-label">Gender:</label>
+            <select class="form-select" id="stud_gender" name="stud_gender" required>
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="stud_age" class="form-label">Age:</label>
+            <input type="number" class="form-control" id="stud_age" name="stud_age" required>
+        </div>
+        <div class="mb-3">
+            <label for="stud_city" class="form-label">City:</label>
+            <input type="text" class="form-control" id="stud_city" name="stud_city" required>
+        </div>
+        <div class="mb-3">
+            <label for="stud_tel" class="form-label">Telephone:</label>
+            <input type="text" class="form-control" id="stud_tel" name="stud_tel" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
+

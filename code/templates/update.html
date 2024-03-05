@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Update Student{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Update Student</h1>
+    <form method="post" action="{{ url_for('update_student', stud_id=student[0]) }}">
+        {{ csrf_token }}
+        <div class="mb-3">
+            <label for="stud_surname" class="form-label">Surname:</label>
+            <input type="text" class="form-control" id="stud_surname" name="stud_surname" value="{{ student[1] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="stud_name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="stud_name" name="stud_name" value="{{ student[2] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="stud_gender" class="form-label">Gender:</label>
+            <select class="form-select" id="stud_gender" name="stud_gender" required>
+                <option value="M" {% if student[3] == 'M' %}selected{% endif %}>M</option>
+                <option value="F" {% if student[3] == 'F' %}selected{% endif %}>F</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="stud_age" class="form-label">Age:</label>
+            <input type="number" class="form-control" id="stud_age" name="stud_age" value="{{ student[4] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="stud_city" class="form-label">City:</label>
+            <input type="text" class="form-control" id="stud_city" name="stud_city" value="{{ student[5] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="stud_tel" class="form-label">Telephone:</label>
+            <input type="text" class="form-control" id="stud_tel" name="stud_tel" value="{{ student[6] }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}
+
